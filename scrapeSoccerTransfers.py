@@ -17,6 +17,6 @@ for table in soup.find('table', {'class': 'Table'}):
             jugador = td[1].text.strip()
             equipoAnterior = td[2].find_all('span')[1].text.strip()
             equipoNuevo = td[4].find_all('span')[1].text.strip()
-            print(fecha, jugador, equipoAnterior, equipoNuevo)
+            print(fecha + "\t| " + jugador + " \t| " + equipoAnterior + " => " + equipoNuevo)
 
         
