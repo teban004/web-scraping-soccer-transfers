@@ -8,8 +8,10 @@ data = requests.get('https://espndeportes.espn.com/futbol/transferencias')
 soup = BeautifulSoup(data.text, 'html.parser')
 
 #get data simply by looking for each <tr>
-for tr in soup.find_all('tr'):
-    for td in tr.find_all('td'):
-        print(td.text)
+data =[]
+for table in soup.find('table', {'class': 'Table'}):
+    for tr in table.find_all('tr', { 'class': 'Table__TR'}):
+        values = [td.text for td in tr.find_all('td')]
+        data.append(values)
 
-
+print(data)
